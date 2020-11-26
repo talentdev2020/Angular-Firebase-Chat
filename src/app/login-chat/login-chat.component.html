@@ -1,0 +1,29 @@
+<div class="center">
+  <div *ngIf="!isNextPage; else NextPage">
+    <span>Please select your role</span>
+    <div class="role">
+      <input
+        checked
+        type="radio"
+        id="professional"
+        name="role"
+        (click)="onRole(0)"
+        value="professional"
+      />
+      <label for="professional" (click)="onRole(0)">Professional</label><br />
+      <input
+        type="radio"
+        id="student"
+        name="role"
+        value="student"
+        (click)="onRole(1)"
+      />
+      <label for="student" (click)="onRole(1)">Student</label><br />
+    </div>
+    <button class="btn" (click)="onNext()">Next</button>
+  </div>
+  <ng-template #NextPage>
+  
+    <main-chat></main-chat> 
+  </ng-template>
+</div>

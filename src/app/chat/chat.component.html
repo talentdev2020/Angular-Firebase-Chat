@@ -1,0 +1,129 @@
+<div class="user_form" *ngIf="!userid">
+  <div class="student_list_popup">
+    <strong>Group</strong>
+    <div
+      *ngFor="let group of groupList"
+      (click)="onSelectGroup(group.id)"
+      [id]="group.id"
+    >
+      {{ group.name }}
+    </div>
+  </div>
+  <div>
+    <div>
+      <label>Username:</label><input type="text" [(ngModel)]="username" />
+    </div>
+    <div>
+      <label>UserId:</label><input type="text" [(ngModel)]="input_userid" />
+    </div>
+    <button (click)="onJoin()">Join</button>
+    <div *ngIf="role === 0">
+      <label>GroupName:</label><input type="text" [(ngModel)]="groupname" />
+      <label>LimitTime(min):</label
+      ><input type="number" [(ngModel)]="limittime" />
+      <label>Timezone:</label>
+      <select [(ngModel)]="timezone"
+        ><option value="-7">URC-7</option
+        ><option value="-4">URC-4</option
+        ><option value="0">URC0</option
+        ><option value="2">URC+2</option></select
+      >
+      <div><button (click)="onCreateGroup()">Create Group</button></div>
+    </div>
+  </div>
+</div>
+<div *ngIf="userid" class="chat">
+  <div class="students">
+    <a href="/">back</a>
+    <div
+      *ngFor="let student of students; index as i"
+      (click)="addCurrentStudent(student.uid, student.name)"
+      class="student_element"
+    >
+      {{ student.name }}
+      <div class="unread" *ngIf="unreadMessages[i] !== 0">
+        {{ unreadMessages[i] }}
+      </div>
+    </div>
+  </div>
+  <div class="group-content">
+    <div>
+      <div class="messsage_group" #message_group>
+        <div *ngFor="let message of groupMessage.messages; index as i">
+          <div *ngIf="firstIndex === i" class="unread_div">
+            ---- unread messages ----
+          </div>
+          <ng-container
+            [ngTemplateOutlet]="
+              message.sender === currentuid ? showSend : showReceive
+            "
+            [ngTemplateOutletContext]="{ link: message }"
+          >
+          </ng-container>
+        </div>
+      </div>
+      <ng-template #showSend let-link="link">
+        <div class="groupmessage_send">
+          {{ link.message }}
+        </div>
+        <div class="text-right">
+          {{ "You,  " + link.time }}
+        </div>
+      </ng-template>
+      <ng-template #showReceive let-link="link">
+        <div class="groupmessage_receive">
+          {{ link.message }}
+        </div>
+        <div class="text-left">
+          {{ link.name + ",  " + link.time }}
+        </div>
+      </ng-template>
+    </div>
+    <div class="students_message">
+      <app-chat
+        *ngFor="let student of currentStudents.slice().reverse(); index as i"
+        [student]="student"
+        [currentuid]="currentuid"
+      ></app-chat>
+      <div class="students_list">
+        <div class="student_list_popup" *ngIf="isList">
+          <div
+            *ngFor="let student of inactiveStudents"
+            (click)="addCurrentStudent(student.uid, student.name)"
+          >
+            {{ student.name }}
+          </div>
+        </div>
+        <div
+          class="student_list_icon"
+          (click)="showList()"
+          *ngIf="isListIcon"
+        ></div>
+      </div>
+    </div>
+
+    <div class="message">
+      <input
+        type="text"
+        placeholder="Type message here"
+        class="message_body"
+        [(ngModel)]="groupmessage"
+        (keydown.enter)="sendGroupMessage()"
+        autofocus
+        #messageRef
+      />
+
+      <img src="/assets/link.png" class="" (click)="onLink()" />
+      <input type="file" class="hide" id="file" #fileUpload />
+      <div class="sendbutton" (click)="sendGroupMessage()"></div>
+    </div>
+    <div class="upload_confirm" *ngIf="filename">
+      {{ filename }}
+      <img
+        class="upload_close"
+        src="/assets/multiple.png"
+        (click)="onCloseUpload()"
+      />
+    </div>
+  </div>
+</div>

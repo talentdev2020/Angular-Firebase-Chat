@@ -1,0 +1,74 @@
+<div class="main" *ngIf="!student.isMin">
+  <div class="header">
+    <div>{{ student.name }}</div>
+    <div class="iconbox">
+      <img src="/assets/minus.png" (click)="onMinium()" />
+      <img src="/assets/multiple.png" (click)="onClose()" />
+    </div>
+  </div>
+  <div class="body">
+    <div class="messsage_container" #message_container>
+      <div *ngFor="let message of student.messages; index as i">
+        <div *ngIf="firstIndex === i" class="unread_div">
+          ---- unread messages ----
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="
+            message.sender === currentuid ? showSend : showReceive
+          "
+          [ngTemplateOutletContext]="{ link: message }"
+        >
+        </ng-container>
+      </div>
+    </div>
+    <ng-template #showSend let-link="link">
+      <div class="message_send">
+        {{ link.content }}
+      </div>
+      <div class="text-right">
+        {{ "You,  " + link.time }}
+      </div>
+    </ng-template>
+    <ng-template #showReceive let-link="link">
+      <div class="message_receive">
+        {{ link.content }}
+      </div>
+      <div class="text-left">
+        {{ link.receivername + ",  " + link.time }}
+      </div>
+    </ng-template>
+    <div class="message">
+      <input
+        type="text"
+        placeholder="Type message here"
+        class="message_body"
+        [(ngModel)]="message"
+        (keydown.enter)="sendMessage()"
+        autofocus
+        #input_message
+        (click)="onInputMessageClick()"
+      />
+
+      <img src="/assets/link.png" class="" (click)="onLink()" />
+      <input type="file" class="hide" id="file" #fileUpload />
+      <div class="sendbutton" (click)="sendMessage()"></div>
+    </div>
+    <div class="upload_confirm" *ngIf="filename">
+      {{ filename }}
+      <img
+        class="upload_close"
+        src="/assets/multiple.png"
+        (click)="onCloseUpload()"
+      />
+    </div>
+  </div>
+</div>
+<div class="main" *ngIf="student.isMin">
+  <div class="header m_header">
+    <div>{{ student.name }}</div>
+    <div class="iconbox">
+      <img src="/assets/minus.png" (click)="onMinium()" />
+      <img src="/assets/multiple.png" (click)="onClose()" />
+    </div>
+  </div>
+</div>

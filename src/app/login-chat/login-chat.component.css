@@ -1,0 +1,21 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.role {
+  font-size: 20px;
+}
+.role input {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.role label {
+  cursor: pointer;
+}
+.btn {
+  padding: 7px 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}

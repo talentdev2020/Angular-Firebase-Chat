@@ -1,0 +1,126 @@
+.header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  width: 300px;
+  font-size: 16px;
+  align-items: center;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.m_header {
+  width: 200px;
+}
+
+.main {
+  margin: 0 5px;
+}
+
+.iconbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40px;
+}
+.iconbox img {
+  cursor: pointer;
+}
+.sendbutton {
+  background-color: #1f74de;
+  width: 23px;
+  height: 23px;
+  background-image: url(/assets/send.png);
+  background-repeat: no-repeat;
+
+  background-position: center;
+}
+.body {
+  width: 310px;
+  height: 315px;
+  background: #f7f7fd;
+  margin: 0 auto;
+  padding: 0 0 0 10px;
+  position: relative;
+  font-size: 14px;
+}
+
+.message {
+  width: 278px;
+  height: 40px;
+  background: white;
+  border: 1px solid #cecece;
+  position: absolute;
+  display: flex;
+  bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.message img {
+  width: 20px;
+  height: 20px;
+}
+.message_body {
+  width: 200px;
+  border: 0;
+  outline: 0;
+}
+.message_body:focus {
+  outline: none !important;
+}
+.hide {
+  display: none;
+}
+.message_receive {
+  width: 201px;
+  padding: 12px;
+  color: white;
+  margin: 10px auto 5px 0;
+  background-color: #1f74de;
+  border-radius: 8px;
+}
+.message_send {
+  width: 201px;
+  padding: 12px;
+  word-break: break-all;
+  color: black;
+  background-color: #e5e5fc;
+  margin: 10px 0 5px auto;
+  margin-left: auto;
+  border-radius: 8px;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.messsage_container {
+  overflow-y: auto;
+  height: 250px;
+}
+.upload_confirm {
+  background: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 30px;
+  position: absolute;
+  bottom: -15px;
+  cursor: pointer;
+}
+.upload_confirm:hover {
+  background-color: #76c8e2;
+}
+.upload_close {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.unread_div {
+  color: #b54747;
+  text-align: center;
+}

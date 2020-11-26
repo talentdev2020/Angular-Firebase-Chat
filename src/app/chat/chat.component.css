@@ -1,0 +1,172 @@
+.students_message {
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+}
+app-chat {
+  margin-top: auto;
+}
+.student_list_icon {
+  width: 45px;
+  height: 45px;
+  background-color: black;
+  background-image: url("/assets/list.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: center;
+}
+.student_list_popup {
+  background: white;
+  width: 232px;
+  height: 204px;
+  text-align: center;
+  margin-bottom: 5px;
+  overflow-y: auto;
+  border: 1px solid lightskyblue;
+  margin-right: 20px;
+}
+.student_list_popup div {
+  color: black;
+  padding: 14px;
+  font-size: 16px;
+}
+.student_list_popup div:hover {
+  background: #727272;
+  cursor: pointer;
+}
+.students_list {
+  margin-top: auto;
+}
+.students {
+  border: 1px solid lightgray;
+  width: 250px;
+  background: #e3eff1;
+  height: 100vh;
+  overflow-y: auto;
+}
+.chat {
+  display: flex;
+}
+.students div {
+  padding: 14px;
+}
+.students div:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
+.user_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_form div {
+  margin-top: 10px;
+}
+.user_form input {
+  padding: 7px;
+}
+.user_form label {
+  display: block;
+}
+.user_form button {
+  font-size: 18px;
+  padding: 7px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+
+  height: 46px;
+  border-color: lightgray;
+}
+.user_form button:hover {
+  height: 45px;
+}
+.selected {
+  background-color: lightskyblue;
+}
+.message {
+  width: calc(100% - 360px);
+  height: 40px;
+  background: white;
+  border: 1px solid #cecece;
+  position: absolute;
+  display: flex;
+  bottom: 0px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 0 10px;
+}
+.message img {
+  width: 20px;
+  height: 20px;
+}
+.message_body {
+  width: calc(100% - 80px);
+
+  border: 0;
+  outline: 0;
+}
+.message_body:focus {
+  outline: none !important;
+}
+.hide {
+  display: none;
+}
+.sendbutton {
+  background-color: #1f74de;
+  width: 23px;
+  height: 23px;
+  background-image: url(/assets/send.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-position: center;
+}
+.unread {
+  right: 0px;
+  display: inline;
+  border-radius: 50%;
+  padding: 4px !important;
+  font-size: 12px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  width: 14px;
+  height: 14px;
+  right: 10px;
+  background: #c34040;
+}
+.student_element {
+  position: relative;
+}
+.group-content {
+  width: calc(100vw - 350px);
+  padding: 10px 20px;
+}
+
+.messsage_group {
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
+.groupmessage_receive {
+  width: 201px;
+  padding: 12px;
+  color: white;
+  margin: 10px auto 5px 0;
+  background-color: #1f74de;
+  border-radius: 8px;
+}
+.groupmessage_send {
+  width: 201px;
+  padding: 12px;
+  color: black;
+  background-color: #e5e5fc;
+  margin: 10px 0 5px auto;
+  margin-left: auto;
+  border-radius: 8px;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
